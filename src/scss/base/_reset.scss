@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  font-size: 1.6rem;
+  @extend %Roboto-400;
+  color: $default;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+img {
+  width: 100%;
+  vertical-align: top;
+  font-style: italic;
+}
+
+a[class] {
+  text-decoration: none;
+}

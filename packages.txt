@@ -1,0 +1,87 @@
+====================================
+============== FILES ===============
+====================================
+1. при додаванні нових файлів gulp не буде обробляти вже оброблені файли;
+!!! встановиться 4 версія, більш нові підключаються як JS modules !!!
+- npm i gulp-changed@4 -D
+2.concat files and change name
+- npm i gulp-concat -D
+
+====================================
+============== SERVER ===============
+====================================
+1. start server and live reload page;
+- npm i gulp-server-livereload -D
+
+====================================
+============== HTML ================
+====================================
+1. HTML include
+HTML code: @@include('components/header.html')
+- npm i gulp-file-include -D
+2. minify HTML
+- npm i gulp-htmlclean -D
+3. typograf
+правильний перенос рядків при зміні розміру екрану;
+- npm i gulp-typograf -D
+
+====================================
+============== SASS ================
+====================================
+1. SASS to CSS
+- npm i gulp-sass sass -D
+const sass = require('gulp-sass')(require('sass'));
+2. autoprefixer for CSS
+- npm i gulp-autoprefixer -D
+!!! to use CommonJS install gulp-autoprefixer@8 !!!
+!!! підключення після pipe(sass()) !!!
+налаштування: в package.json  "browserslist": [ "last 5 versions" ]
+3. global imports
+- npm i gulp-sass-glob -D
+
+WITHOUT gulp-sass-glob
+@import "./blocks/header";
+@import "./blocks/footer";
+
+WITH gulp-sass-glob
+@import "./blocks/*.scss";
+4. css media queries grouping
+- npm i gulp-group-css-media-queries -D
+
+====================================
+============== JS ==================
+====================================
+1. compress js files
+!!! якщо не використовувати webpack та babel !!!
+- npm i gulp-uglify-es -D
+const uglify = require('gulp-uglify-es').default;
+2. webpack for gulp
+- npm i webpack-stream -D
+3. babel
+- npm i gulp-babel -D
+- npm i @babel/core -D
+- npm i @babel/preset-env -D
+налаштування: in package.json "babel": { "presets": ["@babel/preset-env"] }
+
+====================================
+============ IMAGES ================
+====================================
+1. avif;
+- npm i gulp-avif -D
+2. webp;
+- npm i gulp webp -D 
+!!! to use CommonJS install gulp-webp@4 !!!;
+3. image min;
+- npm i gulp-imagemin -D
+!!! to use CommonJS install gulp-imagemin@7 !!!;
+
+====================================
+========== SVG SPRITE ==============
+====================================
+1. npm i gulp-svg-sprite -D
+
+====================================
+============= FONTS ================
+====================================
+1. npm i gulp-fonter -D
+2. npm i gulp-ttf2woff2 -D
