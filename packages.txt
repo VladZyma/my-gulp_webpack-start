@@ -6,6 +6,10 @@
 - npm i gulp-changed@4 -D
 2.concat files and change name
 - npm i gulp-concat -D
+3. видалення файлів та папок;
+- npm i gulp-clean -D
+4. робота з файлами Node.js;
+- const fs = require('fs') 
 
 ====================================
 ============== SERVER ===============
@@ -45,7 +49,10 @@ WITHOUT gulp-sass-glob
 
 WITH gulp-sass-glob
 @import "./blocks/*.scss";
-4. css media queries grouping
+4. css maps
+- npm i gulp-sourcemaps -D
+!!! використовувати тільки при розробці без CSS MEDIA QUERIES GROUPING !!!!
+5. css media queries grouping
 - npm i gulp-group-css-media-queries -D
 
 ====================================
