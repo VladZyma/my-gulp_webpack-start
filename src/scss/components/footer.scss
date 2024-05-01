@@ -1,1 +1,21 @@
+.footer {
+  &__inner {
+    display: flex;
+    background-color: #796a6a;
+    @media (max-width: 800px) {
+      background-color: #da5c5c;
+    }
+  }
+  &__icon {
+    width: 81px;
+    height: 24px;
 
+    fill: #01996d;
+    stroke: #01996d;
+
+    :hover {
+      fill: #41dfb2;
+      stroke: #41dfb2;
+    }
+  }
+}
