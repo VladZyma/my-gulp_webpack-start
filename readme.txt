@@ -27,6 +27,7 @@ HTML,SCSS,JS,IMG(avif,webp,svg sprite),FONTS
 ===================================================
 1. create folder src or app (for initial files);
 2. create folder dist or docs (for production);
+3. create folder gulp with gulp.dev.js and gulp.prod.js;
 
 ===================================================
 =========== INSIDE folder src or app ==============
