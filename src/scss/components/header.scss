@@ -1,0 +1,9 @@
+.header {
+  &__inner {
+    display: flex;
+    background-color: #222121;
+    @media (max-width: 800px) {
+      background-color: #da5c5c;
+    }
+  }
+}
