@@ -12,6 +12,10 @@ const fs = require('fs');
 // SERVER
 const server = require('gulp-server-livereload');
 
+// ERRORS HANDLER AND NOTIFICATION
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
+
 // HTML
 const includeHTML = require('gulp-file-include');
 const cleanHTML = require('gulp-htmlclean');
@@ -46,6 +50,15 @@ function html() {
   return src([`./${srcFolder}/**/*.html`, `!./${srcFolder}/components/*.html`])
     .pipe(changed(`./${buildFolder}`, { hasChanged: changed.compareContents }))
     .pipe(
+      plumber({
+        errorHandler: notify.onError({
+          title: 'HTML',
+          message: 'Error <%= error.message %>',
+          sound: false,
+        }),
+      })
+    )
+    .pipe(
       includeHTML({
         prefix: '@@',
         basepath: '@file',
@@ -68,6 +81,15 @@ function html() {
 function styles() {
   return src([`./${srcFolder}/scss/*.scss`])
     .pipe(changed(`./${buildFolder}/css`))
+    .pipe(
+      plumber({
+        errorHandler: notify.onError({
+          title: 'Styles',
+          message: 'Error <%= error.message %>',
+          sound: false,
+        }),
+      })
+    )
     .pipe(sourceMaps.init())
     .pipe(sassGlob())
     .pipe(sass({ outputStyle: 'expanded' }))
@@ -79,6 +101,15 @@ function styles() {
 function scripts() {
   return src(`./${srcFolder}/js/*.js`)
     .pipe(changed(`./${buildFolder}/js`))
+    .pipe(
+      plumber({
+        errorHandler: notify.onError({
+          title: 'JavaScript',
+          message: 'Error <%= error.message %>',
+          sound: false,
+        }),
+      })
+    )
     .pipe(babel())
     .pipe(webpack(require('../webpack.config')))
     .pipe(dest(`./${buildFolder}/js`));
